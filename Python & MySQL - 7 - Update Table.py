@@ -17,7 +17,7 @@ conn = mysql.connector.connect(
 cur = conn.cursor()
 
 print("Custom MySQL ID Updater v0.1 \n")
-print("-" * 79)
+print("-" * 78)
 
 
 while True:
