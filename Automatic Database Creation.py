@@ -8,10 +8,10 @@ import mysql.connector
 ## connecting to the database using 'connect()' method
 ## it takes 3 required parameters 'host', 'user', 'passwd'
 conn = mysql.connector.connect(
-    host = "172.17.50.105",
+    host = "192.168.1.62",
     user = "username",
     passwd = "password",
-    database = "datacamp"
+
 )
 
 cur = conn.cursor()

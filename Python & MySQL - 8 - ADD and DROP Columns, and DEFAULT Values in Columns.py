@@ -4,7 +4,7 @@
 import time
 
 import mysql.connector
-
+#import mysql.connector as mysql
 ## connecting to the database using 'connect()' method
 ## it takes 3 required parameters 'host', 'user', 'passwd'
 conn = mysql.connector.connect(
@@ -15,29 +15,25 @@ conn = mysql.connector.connect(
 )
 
 cur = conn.cursor()
-
-sql = '''CREATE TABLE people(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
-    lastname VARCHAR(70) NOT NULL,
-    telephone INT,
-    email VARCHAR(255),
-    address VARCHAR(100)
-)'''
+#sql = "ALTER TABLE people ADD COLUMN last_one VARCHAR(100)"
+#sql = "ALTER TABLE people ADD COLUMN m_name VARCHAR(100) AFTER name"
+#sql = "ALTER TABLE people ADD COLUMN custom_id INT FIRST"
+#sql = "ALTER TABLE people ALTER last_one SET DEFAULT 'ULTRA Secret'"
+#sql = "ALTER TABLE people ALTER last_one DROP DEFAULT"
+sql = "ALTER TABLE people DROP COLUMN last_one"
 
 try:
     cur.execute(sql)
+    conn.commit()
 
 except:
     conn.rollback()
 
 
-cur.execute("DESCRIBE people")
+cur.execute("SELECT * FROM people")
 for x in cur:
     print(x)
-
-
-
+    print("-" * 79)
 
 cur.close()
 conn.close()

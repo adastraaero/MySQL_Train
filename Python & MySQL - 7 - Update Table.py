@@ -8,7 +8,7 @@ import mysql.connector
 ## connecting to the database using 'connect()' method
 ## it takes 3 required parameters 'host', 'user', 'passwd'
 conn = mysql.connector.connect(
-    host = "172.17.50.105",
+    host = "192.168.1.62",
     user = "username",
     passwd = "password",
     database = "test4"
@@ -32,12 +32,13 @@ while True:
 
     k_id = input("ID: ")
     k_name = input("Name: ")
+    k_lastname= input("Lastname: ")
     k_telephone = input("Telephone: ")
     k_email = input("Email: ")
     k_address = input("Address: ")
 
 
-    sql = """UPDATE people SET name = '{1}', telephone = '{2}', email = '{3}', address = '{4}' WHERE id = '{0}'""".format(k_id, k_name, k_telephone, k_email, k_address)
+    sql = """UPDATE people SET name = '{1}', lastname = '{2}', telephone = '{3}', email = '{4}', address = '{5}' WHERE id = '{0}'""".format(k_id, k_name, k_lastname, k_telephone, k_email, k_address)
 
     try:
         cur.execute(sql)

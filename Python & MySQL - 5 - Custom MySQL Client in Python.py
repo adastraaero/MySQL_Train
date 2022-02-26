@@ -4,11 +4,11 @@
 import time
 
 import mysql.connector
-
+#import mysql.connector as mysql
 ## connecting to the database using 'connect()' method
 ## it takes 3 required parameters 'host', 'user', 'passwd'
 conn = mysql.connector.connect(
-    host = "172.17.50.105",
+    host = "192.168.1.62",
     user = "username",
     passwd = "password",
     database = "test4"
@@ -25,12 +25,13 @@ while True:
         break
 
     k_name = input("Name: ")
+    k_lastname = input("LastName: ")
     k_telephone = input("telephone: ")
     k_email = input("email: ")
     k_address = input("address: ")
 
-    sql = """INSERT INTO people(id, name, telephone, email, address)
-    VALUES (NULL, '{}', '{}', '{}', '{}')""".format(k_name, k_telephone, k_email, k_address)
+    sql = """INSERT INTO people(id, name, lastname, telephone, email, address)
+    VALUES (NULL, '{}', '{}', '{}', '{}', '{}')""".format(k_name, k_lastname, k_telephone, k_email, k_address)
 
 
 
