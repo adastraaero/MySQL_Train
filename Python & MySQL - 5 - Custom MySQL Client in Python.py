@@ -30,7 +30,7 @@ while True:
     k_email = input("email: ")
     k_address = input("address: ")
 
-    sql = """INSERT INTO people(id, name, lastname, telephone, email, address)
+    sql = """INSERT INTO people_2(id, name, lastname, telephone, email, address)
     VALUES (NULL, '{}', '{}', '{}', '{}', '{}')""".format(k_name, k_lastname, k_telephone, k_email, k_address)
 
 
@@ -43,7 +43,7 @@ while True:
         conn.rollback()
 
 
-    cur.execute("SELECT * FROM people")
+    cur.execute("SELECT * FROM people_2")
     for x in cur:
         print(x)
 

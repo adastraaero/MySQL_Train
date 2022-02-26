@@ -15,12 +15,8 @@ conn = mysql.connector.connect(
 )
 
 cur = conn.cursor()
-#sql = "ALTER TABLE people ADD COLUMN last_one VARCHAR(100)"
-#sql = "ALTER TABLE people ADD COLUMN m_name VARCHAR(100) AFTER name"
-#sql = "ALTER TABLE people ADD COLUMN custom_id INT FIRST"
-#sql = "ALTER TABLE people ALTER last_one SET DEFAULT 'ULTRA Secret'"
-#sql = "ALTER TABLE people ALTER last_one DROP DEFAULT"
-sql = "ALTER TABLE people DROP COLUMN m_name"
+
+sql = "SELECT name, lastname FROM people UNION DISTINCT SELECT name, lastname FROM people_2"
 
 try:
     cur.execute(sql)
@@ -30,7 +26,7 @@ except:
     conn.rollback()
 
 
-cur.execute("SELECT * FROM people")
+cur.execute(sql)
 for x in cur:
     print(x)
     print("-" * 79)

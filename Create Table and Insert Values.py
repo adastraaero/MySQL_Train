@@ -16,7 +16,7 @@ conn = mysql.connector.connect(
 
 cur = conn.cursor()
 
-sql = '''CREATE TABLE people(
+sql = '''CREATE TABLE people_2(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
     lastname VARCHAR(70) NOT NULL,
@@ -32,7 +32,7 @@ except:
     conn.rollback()
 
 
-cur.execute("DESCRIBE people")
+cur.execute("DESCRIBE people_2")
 for x in cur:
     print(x)
 
